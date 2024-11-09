@@ -22,18 +22,30 @@ public class AI extends Thread {
 
     
     public AI() {
-        this.speed = 10000;
+        this.speed = 2;
         this.characterStarWars = characterStarWars;
         this.characterStarTrek = characterStarTrek;
         this.ready = false;
 
     }
     
-    
-    
+    @Override
+    public void run(){
+        while(true){
+            try{
+                Global.SAI.acquire();
+                sleep(this.speed*1000);
+                decisorDeEventos();
+                Global.SAdmin.release();
+            }
+            catch (Exception e) {
+                  System.out.println("error en ai");  
+            }
+        }
+        }
+        
     public String seleccionadorGanador (){
         Random random = new Random();
-        Global global = new Global();
         int puntosSW = characterStarWars.skillPoints+characterStarWars.healthPoints+characterStarWars.strengthPoints+characterStarWars.agilityPoints;
         int puntosST = characterStarTrek.skillPoints+characterStarTrek.healthPoints+characterStarTrek.strengthPoints+characterStarTrek.agilityPoints;
         String saga;
@@ -50,10 +62,7 @@ public class AI extends Thread {
             this.winner=characterStarTrek;
             saga = "st";
         }
-        List Listaganador = new List();
-        Listaganador.insertBegin(this.winner);
 
-        global.setGanadores(Listaganador);
         return saga;
     }
     
@@ -116,6 +125,14 @@ public class AI extends Thread {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
     }
 
     

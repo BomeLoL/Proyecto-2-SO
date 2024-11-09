@@ -4,6 +4,8 @@
  */
 package Classes;
 
+import Classes.Global;
+import DataEstructure.List;
 import DataEstructure.Node;
 import java.util.Random;
 import java.util.logging.Level;
@@ -23,39 +25,100 @@ public class Admin extends Thread{
         this.ai = ai;
 
     }
-    
+        
     @Override
     public void run(){
         while(true){
             try{
                 IniciadorDe20Personajes();
-                //Global.SAI.acquire();
+                
+                if (this.counter==2){
+                    Random random = new Random(); 
+                    if (random.nextDouble() < 0.8){
+                        seleccionarDosNuevos();
+                    }
+                }
 
-                //Global.SAI.release();
+                if (Global.sw.reinforcment.isEmpty()==false){
+
+                    salirDeRefuerzo();                    
+                }
+
+                seleccionadorDePersonajes();
+
+                Global.SAI.release();
+                Global.SAdmin.acquire();
+                if (ai.getResult().equals("Tenemos un ganador")){
+                    String sagaGanadora = ai.seleccionadorGanador();
+                    eliminarpostpelea(sagaGanadora);
+                } else if (ai.getResult().equals("Empate")){
+                    casoEmpate();
+                } else if (ai.getResult().equals("No hay combate")){
+                    casoRefuerzo();
+                }
+                contadorInanicion();
+                this.counter+=1;
+                System.out.println("\n\n--------Starwars Second Priority------------");
+                Global.sw.secondPriority.print();
+                //System.out.println("\n\n--------Starwars Backup------------");
+                //Global.sw.reinforcment.print();
+                //System.out.println("\n\n--------Winners------------");
+                //Global.ganadores.imprimir();
+                System.out.println("\n\n\n\n------------------------");
             }
             catch (Exception e) {
-                  System.out.println("conchale vamos atrasadisimos *se soba el rostro mientras mira su reloj*");  
+                  System.out.println(e);  
             }
         }
         }
     
-    public void eleminarPerdedor(){
-        Global global = new Global();
-        if (ai.getCharacterStarWars().getId()!=ai.getWinner().getId()){
-            if (ai.getCharacterStarWars().getPriority()==1){
-             global.sw.firstPriority.deleteByCharacter(ai.getCharacterStarWars());                
-            }else if (ai.getCharacterStarWars().getPriority()==2){
-             global.sw.secondPriority.deleteByCharacter(ai.getCharacterStarWars());}                
-            else if (ai.getCharacterStarWars().getPriority()==3){ 
-             global.sw.thirdPriority.deleteByCharacter(ai.getCharacterStarWars());}   
-        }else{
-            if (ai.getCharacterStarTrek().getPriority()==1){
-             global.st.firstPriority.deleteByCharacter(ai.getCharacterStarTrek());                
-            }else if (ai.getCharacterStarTrek().getPriority()==2){
-             global.st.secondPriority.deleteByCharacter(ai.getCharacterStarTrek());}                
-            else if (ai.getCharacterStarTrek().getPriority()==3){ 
-             global.st.thirdPriority.deleteByCharacter(ai.getCharacterStarTrek());}
+    public void seleccionarDosNuevos (){
+        boolean stSalir = false;
+        boolean swSalir = false;
+        for (int i=0; i < 20; i++){
+            if (i == Global.IdStarTrek && stSalir == false){
+                MovieCharacter personajeST = new MovieCharacter(Global.getSizeId(), Global.star_trek_characters_names[i] );
+                if (personajeST.priority == 1){
+                    Global.st.firstPriority.enqueue(personajeST);
+                }else if (personajeST.priority == 2){
+                    Global.st.secondPriority.enqueue(personajeST);
+                }else if (personajeST.priority == 3){
+                    Global.st.thirdPriority.enqueue(personajeST);
+                }
+                if (i!= 19){
+                Global.setIdStarTrek(Global.getIdStarTrek()+1);}
+                else{
+                Global.setIdStarTrek(0);
+                }
+                stSalir = true;
+                Global.setSizeId(Global.getSizeId()+1);
+
+                System.out.println("PERSONAJE ESPECIAL ST");
+                System.out.println(personajeST.printStats());
+                }
+                
+            if (i == Global.IdStarWars && swSalir == false){
+                MovieCharacter personajeSW = new MovieCharacter(Global.getSizeId(), Global.star_wars_characters_names[i] );
+                if (personajeSW.priority == 1){
+                    Global.sw.firstPriority.enqueue(personajeSW);
+                }else if (personajeSW.priority == 2){
+                    Global.sw.secondPriority.enqueue(personajeSW);
+                }else if (personajeSW.priority == 3){
+                    Global.sw.thirdPriority.enqueue(personajeSW);
+                }
+                if (i!= 19){
+                Global.setIdStarWars(Global.getIdStarWars()+1);}
+                else{
+                Global.setIdStarWars(0);
+                }
+                swSalir =true;
+                Global.setSizeId(Global.getSizeId()+1);
+                System.out.println("PERSONAJE ESPECIAL Sw");
+                System.out.println(personajeSW.printStats());
+                }            
         }
+        
+        ;
     }
     
     public void eliminarpostpelea(String saga){
@@ -89,8 +152,12 @@ public class Admin extends Thread{
                 global.sw.secondPriority.deleteByCharacter(ai.getCharacterStarWars());
             }else if (ai.getCharacterStarWars().priority ==3) {
                 global.sw.thirdPriority.deleteByCharacter(ai.getCharacterStarWars());
-            }
+            }   
         }
+        List Listaganador = global.ganadores;
+        Listaganador.insertBegin(ai.getWinner());
+
+        global.setGanadores(Listaganador);
     }
     
     public void casoRefuerzo(){
@@ -135,7 +202,29 @@ public class Admin extends Thread{
             }
         }
     
-    
+    public void casoEmpate(){
+        Global global = new Global();
+            if (ai.getCharacterStarWars().priority ==1){
+                Node nuevoSW = global.sw.firstPriority.deleteByCharacter(ai.getCharacterStarWars());
+                global.sw.firstPriority.enqueue(nuevoSW.getElement());
+            }else if (ai.getCharacterStarWars().priority ==2){
+                Node nuevoSW = global.sw.secondPriority.deleteByCharacter(ai.getCharacterStarWars());
+                global.sw.firstPriority.enqueue(nuevoSW.getElement());
+            }else if (ai.getCharacterStarWars().priority ==3) {
+                Node nuevoSW = global.sw.thirdPriority.deleteByCharacter(ai.getCharacterStarWars());
+                global.sw.firstPriority.enqueue(nuevoSW.getElement());
+            }
+            if (ai.getCharacterStarTrek().priority ==1){
+                Node nuevoST = global.st.firstPriority.deleteByCharacter(ai.getCharacterStarTrek());
+                global.st.firstPriority.enqueue(nuevoST.getElement());
+            }else if (ai.getCharacterStarTrek().priority ==2){
+                Node nuevoST = global.st.secondPriority.deleteByCharacter(ai.getCharacterStarTrek());
+                global.st.firstPriority.enqueue(nuevoST.getElement());
+            }else if (ai.getCharacterStarTrek().priority ==3) {
+                Node nuevoST = global.st.thirdPriority.deleteByCharacter(ai.getCharacterStarTrek());
+                global.st.firstPriority.enqueue(nuevoST.getElement());
+            }
+        }
     
     public void seleccionadorDePersonajes(){
         Global global = new Global();
@@ -169,8 +258,8 @@ public class Admin extends Thread{
         Global global = new Global();
         Node swThirdPriorityNode = global.sw.thirdPriority.getFirst();
         Node swSecondPriorityNode = global.sw.secondPriority.getFirst();
-        Node stThirdPriorityNode = global.sw.thirdPriority.getFirst();
-        Node stSecondPriorityNode = global.sw.thirdPriority.getFirst();
+        Node stThirdPriorityNode = global.st.thirdPriority.getFirst();
+        Node stSecondPriorityNode = global.st.thirdPriority.getFirst();
         while (swThirdPriorityNode!=null){
             swThirdPriorityNode.getElement().setCounter(swThirdPriorityNode.getElement().getCounter()+1);
             if (swThirdPriorityNode.getElement().getCounter()==8){
@@ -220,8 +309,6 @@ public class Admin extends Thread{
         if(global.sw.firstPriority.isEmpty() && global.sw.secondPriority.isEmpty() && global.sw.thirdPriority.isEmpty() && global.sw.reinforcment.isEmpty() && global.st.firstPriority.isEmpty() && global.st.secondPriority.isEmpty() && global.st.thirdPriority.isEmpty() && global.st.reinforcment.isEmpty()){
             Node nodeStarWars = global.sw.totalCharacterList.getHead() ;
             Node nodeStarTrek = global.st.totalCharacterList.getHead() ;
-            global.setIdStarTrek(global.st.totalCharacterList.getHead());
-            global.setIdStarWars(global.sw.totalCharacterList.getHead());
 
             while (nodeStarWars!=null && nodeStarTrek!=null) {
 

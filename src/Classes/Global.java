@@ -19,8 +19,8 @@ public class Global {
     public static int winStarWars =0;
     public static int winStarTrek =0;
     public static int sizeId =0;
-    public static Node IdStarWars ;
-    public static Node IdStarTrek;
+    public static int IdStarWars = 0;
+    public static int IdStarTrek = 0;
     public static List ganadores = new List();
     public static Movie sw = new Movie("Star Wars");
     public static Movie st = new Movie("Star Trek");
@@ -70,19 +70,19 @@ public class Global {
     
     
     
-    public static Node getIdStarWars() {
+    public static int getIdStarWars() {
         return IdStarWars;
     }
 
-    public static void setIdStarWars(Node IdStarWars) {
+    public static void setIdStarWars(int IdStarWars) {
         Global.IdStarWars = IdStarWars;
     }
 
-    public static Node getIdStarTrek() {
+    public static int getIdStarTrek() {
         return IdStarTrek;
     }
 
-    public static void setIdStarTrek(Node IdStarTrek) {
+    public static void setIdStarTrek(int IdStarTrek) {
         Global.IdStarTrek = IdStarTrek;
     }
 
