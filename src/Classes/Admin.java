@@ -45,7 +45,6 @@ public class Admin extends Thread{
 
                     salirDeRefuerzo();                    
                 }
-                changeQueueText();
                 seleccionadorDePersonajes();
                 changeStateTextStats();
                 Global.SAI.release();
@@ -66,6 +65,7 @@ public class Admin extends Thread{
                 } else if (ai.getResult().equals("No hay combate")){
                     casoRefuerzo();
                 }
+                changeQueueText();
                 changeStateTextResults();
                 sleep(2000);
                 contadorInanicion();
