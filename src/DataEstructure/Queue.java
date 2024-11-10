@@ -133,13 +133,14 @@ public Node deleteByCharacter(MovieCharacter element) {
     return null;
 }
     
-   public void print(){
-       
+   public String print(){
+       String x ="";
        Node index = getFirst();
        while (index!=null){
-           System.out.println(index.getElement().printStats());
+           x+= "(ID: "+index.getElement().getId() +") " + index.getElement().getName()+"\n";
            index=index.getNext();
        }
+       return x;
    }
    
 

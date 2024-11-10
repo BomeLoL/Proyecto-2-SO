@@ -5,6 +5,7 @@
 package Classes;
 
 import DataEstructure.List;
+import Interfaces.Interface;
 import java.util.Random;
 
 /**
@@ -29,17 +30,28 @@ public class AI extends Thread {
 
     }
     
+    public void changeStateTextDeciding(){
+            if (Interface.getIASTATUS()!=null){
+            Interface.getIASTATUS().setText("La IA esta decidiendo...");}
+    }
+    
+    
+    
+    
     @Override
     public void run(){
         while(true){
             try{
                 Global.SAI.acquire();
+                changeStateTextDeciding();
+                
                 sleep(this.speed*1000);
                 decisorDeEventos();
                 Global.SAdmin.release();
+
             }
             catch (Exception e) {
-                  System.out.println("error en ai");  
+                  System.out.println(e);  
             }
         }
         }
@@ -55,12 +67,15 @@ public class AI extends Thread {
         } else if (puntosSW> puntosST){
             this.winner = characterStarWars;
             saga = "sw";
+
         }else if (random.nextDouble()>0.5){
             this.winner=characterStarWars;
             saga = "sw";
+
         }else {
             this.winner=characterStarTrek;
             saga = "st";
+
         }
 
         return saga;

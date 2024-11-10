@@ -7,6 +7,7 @@ package Classes;
 import Classes.Global;
 import DataEstructure.List;
 import DataEstructure.Node;
+import Interfaces.Interface;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,41 +38,92 @@ public class Admin extends Thread{
                     if (random.nextDouble() < 0.8){
                         seleccionarDosNuevos();
                     }
+                    this.counter=0;
                 }
 
                 if (Global.sw.reinforcment.isEmpty()==false){
 
                     salirDeRefuerzo();                    
                 }
-
+                changeQueueText();
                 seleccionadorDePersonajes();
-
+                changeStateTextStats();
                 Global.SAI.release();
                 Global.SAdmin.acquire();
                 if (ai.getResult().equals("Tenemos un ganador")){
                     String sagaGanadora = ai.seleccionadorGanador();
+                    if (sagaGanadora.equals("st")){
+                        Global.setWinStarTrek(Global.getWinStarTrek()+1);
+                    }else{
+                        Global.setWinStarWars(Global.getWinStarWars()+1);
+                    }
+                    ai.seleccionadorGanador();
                     eliminarpostpelea(sagaGanadora);
+                    changeTextWinners();
+                    changeListText();
                 } else if (ai.getResult().equals("Empate")){
                     casoEmpate();
                 } else if (ai.getResult().equals("No hay combate")){
                     casoRefuerzo();
                 }
+                changeStateTextResults();
+                sleep(2000);
                 contadorInanicion();
                 this.counter+=1;
-                System.out.println("\n\n--------Starwars Second Priority------------");
-                Global.sw.secondPriority.print();
+                //System.out.println("\n\n--------Starwars Second Priority------------");
+                //Global.sw.secondPriority.print();
                 //System.out.println("\n\n--------Starwars Backup------------");
                 //Global.sw.reinforcment.print();
                 //System.out.println("\n\n--------Winners------------");
                 //Global.ganadores.imprimir();
-                System.out.println("\n\n\n\n------------------------");
+                //System.out.println("\n\n\n\n------------------------");
             }
             catch (Exception e) {
                   System.out.println(e);  
             }
         }
         }
-    
+        public void changeStateTextResults(){
+            if (Interface.getStatsST()!=null && Interface.getStatsSW()!=null) {
+                if (ai.getResult().equals("Tenemos un ganador")){
+                    Interface.getIASTATUS().setText("Tenemos un ganador: "+ this.ai.getWinner().name);
+                }else if (ai.getResult().equals("Empate")){
+                    Interface.getIASTATUS().setText("Ha ocurrido un empate!!!");
+                }else if (ai.getResult().equals("No hay combate")){
+                    Interface.getIASTATUS().setText("Pa la cola de refuerzos crack!!!!");
+            }}
+    }
+        
+        public void changeStateTextStats(){
+            if (Interface.getStatsST()!=null && Interface.getStatsSW()!=null) {
+            Interface.getStatsST().setText(ai.getCharacterStarTrek().printStats());
+            Interface.getStatsSW().setText(ai.getCharacterStarWars().printStats());                
+            }
+
+
+        }
+        
+      public void changeQueueText(){
+            Interface.getSWP1().setText(Global.sw.firstPriority.print());
+            Interface.getSWP2().setText(Global.sw.secondPriority.print()); 
+            Interface.getSWP3().setText(Global.sw.thirdPriority.print());    
+            Interface.getSWR().setText(Global.sw.reinforcment.print());                            
+            Interface.getSTP1().setText(Global.st.firstPriority.print());
+            Interface.getSTP2().setText(Global.st.secondPriority.print()); 
+            Interface.getSTP3().setText(Global.st.thirdPriority.print());     
+            Interface.getSTR().setText(Global.st.reinforcment.print());                            
+      }
+      
+
+      public void changeListText(){
+            Interface.getWINNERS().setText(Global.ganadores.print());
+      }
+        
+        public void changeTextWinners(){
+            Interface.getCountST().setText(String.valueOf(Global.winStarTrek));
+            Interface.getCountSW().setText(String.valueOf(Global.winStarWars));                
+        }
+        
     public void seleccionarDosNuevos (){
         boolean stSalir = false;
         boolean swSalir = false;
@@ -93,8 +145,7 @@ public class Admin extends Thread{
                 stSalir = true;
                 Global.setSizeId(Global.getSizeId()+1);
 
-                System.out.println("PERSONAJE ESPECIAL ST");
-                System.out.println(personajeST.printStats());
+
                 }
                 
             if (i == Global.IdStarWars && swSalir == false){
@@ -113,8 +164,7 @@ public class Admin extends Thread{
                 }
                 swSalir =true;
                 Global.setSizeId(Global.getSizeId()+1);
-                System.out.println("PERSONAJE ESPECIAL Sw");
-                System.out.println(personajeSW.printStats());
+
                 }            
         }
         
@@ -123,13 +173,13 @@ public class Admin extends Thread{
     
     public void eliminarpostpelea(String saga){
         Global global = new Global();
-            if (saga=="sw"){
-            if (ai.getWinner().priority ==1){
-                global.sw.firstPriority.deleteByCharacter(ai.getWinner());
-            }else if (ai.getWinner().priority ==2){
-                global.sw.secondPriority.deleteByCharacter(ai.getWinner());
-            }else if (ai.getWinner().priority ==3) {
-                global.sw.thirdPriority.deleteByCharacter(ai.getWinner());
+            
+            if (ai.getCharacterStarWars().priority ==1){
+                global.sw.firstPriority.deleteByCharacter(ai.getCharacterStarWars());
+            }else if (ai.getCharacterStarWars().priority ==2){
+                global.sw.secondPriority.deleteByCharacter(ai.getCharacterStarWars());
+            }else if (ai.getCharacterStarWars().priority ==3) {
+                global.sw.thirdPriority.deleteByCharacter(ai.getCharacterStarWars());
             }
             if (ai.getCharacterStarTrek().priority ==1){
                 global.st.firstPriority.deleteByCharacter(ai.getCharacterStarTrek());
@@ -138,22 +188,7 @@ public class Admin extends Thread{
             }else if (ai.getCharacterStarTrek().priority ==3) {
                 global.st.thirdPriority.deleteByCharacter(ai.getCharacterStarTrek());
             }
-        }else{
-            if (ai.getWinner().priority ==1){
-                global.st.firstPriority.deleteByCharacter(ai.getWinner());
-            }else if (ai.getWinner().priority ==2){
-                global.st.secondPriority.deleteByCharacter(ai.getWinner());
-            }else if (ai.getWinner().priority ==3) {
-                global.st.thirdPriority.deleteByCharacter(ai.getWinner());
-            }
-            if (ai.getCharacterStarWars().priority ==1){
-                global.sw.firstPriority.deleteByCharacter(ai.getCharacterStarWars());
-            }else if (ai.getCharacterStarWars().priority ==2){
-                global.sw.secondPriority.deleteByCharacter(ai.getCharacterStarWars());
-            }else if (ai.getCharacterStarWars().priority ==3) {
-                global.sw.thirdPriority.deleteByCharacter(ai.getCharacterStarWars());
-            }   
-        }
+
         List Listaganador = global.ganadores;
         Listaganador.insertBegin(ai.getWinner());
 
@@ -259,7 +294,7 @@ public class Admin extends Thread{
         Node swThirdPriorityNode = global.sw.thirdPriority.getFirst();
         Node swSecondPriorityNode = global.sw.secondPriority.getFirst();
         Node stThirdPriorityNode = global.st.thirdPriority.getFirst();
-        Node stSecondPriorityNode = global.st.thirdPriority.getFirst();
+        Node stSecondPriorityNode = global.st.secondPriority.getFirst();
         while (swThirdPriorityNode!=null){
             swThirdPriorityNode.getElement().setCounter(swThirdPriorityNode.getElement().getCounter()+1);
             if (swThirdPriorityNode.getElement().getCounter()==8){
@@ -333,6 +368,22 @@ public class Admin extends Thread{
              }
 
         }
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
+    public AI getAi() {
+        return ai;
+    }
+
+    public void setAi(AI ai) {
+        this.ai = ai;
     }
     
     

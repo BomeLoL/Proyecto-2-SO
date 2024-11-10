@@ -11,6 +11,7 @@ import Classes.Movie;
 import Classes.MovieCharacter;
 import DataEstructure.Node;
 import DataEstructure.Queue;
+import Interfaces.Interface;
 import java.util.Random;
 
 /**
@@ -23,15 +24,10 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        Interface ui = new Interface();
+        ui.setVisible(true);
         
-        Global.st.listainicial();
-        Global.sw.listainicial();
-        AI ai = new AI();
-        Admin xd = new Admin(ai);
 
-        ai.start();
-        xd.start();
 
     }
     

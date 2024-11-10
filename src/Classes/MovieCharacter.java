@@ -75,7 +75,7 @@ public class MovieCharacter {
     };
  
     public String printStats() {
-        String content = "\nID: " + this.id+ "\nname: " + this.name+ "\nskill: " + this.skillPoints + "\nhealth: " + this.healthPoints + "\nstrength: " + this.strengthPoints + "\nagility: " + this.agilityPoints+ "\nPriority: " + this.priority+ "\nCounter: " + this.counter;
+        String content = "ID: " + this.id+ "\nname: " + this.name+ "\nskill: " + this.skillPoints + "\nhealth: " + this.healthPoints + "\nstrength: " + this.strengthPoints + "\nagility: " + this.agilityPoints;
         return content;
     }
 

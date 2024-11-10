@@ -40,12 +40,14 @@ public class List {
         return getHead() == null;
     }
    
-   public void imprimir(){
+   public String print(){
+       String x ="";
        Node index = getHead();
        while (index!=null){
-           System.out.println(index.getElement().printStats());
+           x+= "(ID: "+index.getElement().getId() +") " + index.getElement().getName()+"\n";
            index=index.getNext();
        }
+       return x;
    }
    
    public Node insertBegin(MovieCharacter winner){
