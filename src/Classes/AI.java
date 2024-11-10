@@ -23,7 +23,7 @@ public class AI extends Thread {
 
     
     public AI() {
-        this.speed = 2;
+        this.speed = 10;
         this.characterStarWars = characterStarWars;
         this.characterStarTrek = characterStarTrek;
         this.ready = false;
