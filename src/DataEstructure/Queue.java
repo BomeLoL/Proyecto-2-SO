@@ -137,7 +137,7 @@ public Node deleteByCharacter(MovieCharacter element) {
        String x ="";
        Node index = getFirst();
        while (index!=null){
-           x+= "(ID: "+index.getElement().getId() +") " + index.getElement().getName()+"\n";
+           x+= "(ID: "+index.getElement().getId()+") " + index.getElement().getName()+"\n";
            index=index.getNext();
        }
        return x;

@@ -225,8 +225,10 @@ public class Admin extends Thread{
         Global global = new Global();   
             if(random.nextDouble()<0.4){
                 Node nuevost= global.st.reinforcment.dequeue();
+                nuevost.getElement().setPriority(1);
                 global.st.firstPriority.enqueue(nuevost.getElement());
                 Node nuevosw= global.sw.reinforcment.dequeue();
+                nuevosw.getElement().setPriority(1);
                 global.sw.firstPriority.enqueue(nuevosw.getElement());
             }
             else{
