@@ -12,6 +12,7 @@ import java.util.Random;
 import javax.swing.JLabel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -47,6 +48,7 @@ public class Admin extends Thread{
                     salirDeRefuerzo();                    
                 }
                 seleccionadorDePersonajes();
+                changeImageResult();
                 changeStateTextStats();
             
                 Global.SAI.release();
@@ -68,8 +70,6 @@ public class Admin extends Thread{
                     casoRefuerzo();
                 }
                 changeQueueText();
-                Interface inter = new Interface();
-                inter.changeImageResult();
                 changeStateTextResults();
                 sleep(2000);
                 contadorInanicion();
@@ -107,7 +107,98 @@ public class Admin extends Thread{
 
         }
         
-        
+public void changeImageResult() {
+    if (ai.getCharacterStarTrek().name.equals("Spock")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/1.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Garak")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/2.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Kai Winn")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/3.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Data")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/4.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("EMH")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/5.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("James T. Kirk")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/6.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Jean-Luc Picard")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/7.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Phlox")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/8.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Benjamin Sisko")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/9.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Kira")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/10.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("T'Pol")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/11.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Weyoun")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/12.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Tuvok")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/13.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Seven of Nine")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/15.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Geordi La Forge")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/16.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Q")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/17.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Kira Nerys")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/18.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Leonard-Bones-McCoy")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/19.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Miles O'Brien")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/20.jpg"));
+    } else if (ai.getCharacterStarTrek().name.equals("Odo")) {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/21.jpg"));
+    } else {
+        Interface.getFotoPersonajeStartrek().setIcon(new ImageIcon("src/Images/cartainiciost.png"));
+    }
+
+    if (ai.getCharacterStarWars().name.equals("Emperador")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/22.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Mace Windu")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/23.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Grand Moff Tarkin")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/41.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Chewbacca")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/24.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Admiral Ackbar")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/25.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("K-2SO")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/26.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("C-3PO")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/27.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Darth Maul")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/28.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Obi-Wan Kenobi")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/29.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("R2-D2")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/30.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Luke Skywalker")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/31.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Princesa Leia")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/32.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Yoda")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/33.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Darth Vader")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/34.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Han Solo")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/35.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Ahsoka Tano")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/36.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Boba Fett")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/37.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Qui-Gon Jinn")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/38.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Anakin Skywalker")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/39.jpg"));
+    } else if (ai.getCharacterStarWars().name.equals("Conde Dooku")) {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/40.jpg"));
+    } else {
+        Interface.getFotoPersonajeStarwars().setIcon(new ImageIcon("src/Images/cartainicio.png"));
+    }
+}
+
+
+
         
       public void changeQueueText(){
             Interface.getSWP1().setText(Global.sw.firstPriority.print());

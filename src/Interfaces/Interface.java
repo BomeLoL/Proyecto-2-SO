@@ -40,98 +40,31 @@ public class Interface extends javax.swing.JFrame {
     ((JSpinner.DefaultEditor) editor).getTextField().setEditable(false);}
       
     }
-    
-    public void changeImageResult(){
-        
-            if (ai.getCharacterStarTrek().name== "Spock"){
-                  fotoPersonajeStartrek.setIcon(new ImageIcon("Images/1.jpg")); 
-            } else if (ai.getCharacterStarTrek().name== "Garak"){
-                 fotoPersonajeStartrek.setIcon(new ImageIcon("Images/2.jpg")); 
-            } else if (ai.getCharacterStarTrek().name== "Kai Winn"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/3.jpg")); 
-            } else if (ai.getCharacterStarTrek().name== "Data"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/4.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "EMH"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/5.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "James T. Kirk"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/6.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Jean-Luc Picard"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/7.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Phlox"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/8.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Benjamin Sisko"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/9.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Kira"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/10.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Kira"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/10.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "T'Pol"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/11.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Weyoun"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/12.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Tuvok"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/13.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Seven of Nine"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/15.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Geordi La Forge"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/16.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Q"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/17.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Kira Nery"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/18.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Leonard-Bones-McCoy"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/19.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Miles O'Brien"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/20.jpg"));
-            } else if (ai.getCharacterStarTrek().name== "Odo"){
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/21.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Emperador"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/22.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Mace Windu"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/23.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Grand Moff Tarkin"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/41.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Chewbacca"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/24.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Admiral Ackbar"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/25.jpg"));
-            } else if (ai.getCharacterStarWars().name== "K-2SO"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/26.jpg"));
-            } else if (ai.getCharacterStarWars().name== "C-3PO"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/27.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Darth Maul"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/28.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Obi-Wan Kenobi"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/29.jpg"));
-            } else if (ai.getCharacterStarWars().name== "R2-D2"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/30.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Luke Skywalker"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/31.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Princesa Leia"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/32.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Yoda"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/33.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Darth Vade"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/34.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Han Solo"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/35.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Ahsoka Tano"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/36.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Boba Fett"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/37.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Qui-Gon Jinn"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/38.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Anakin Skywalker"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/39.jpg"));
-            } else if (ai.getCharacterStarWars().name== "Conde Dook"){
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/40.jpg"));
-            } else {
-                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/carta inicio.jpg"));
-                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/carta inicio st.jpg"));
-            }
-         }          
 
-    
+    public boolean isIniciado() {
+        return iniciado;
+    }
+
+    public void setIniciado(boolean iniciado) {
+        this.iniciado = iniciado;
+    }
+
+    public AI getAi() {
+        return ai;
+    }
+
+    public void setAi(AI ai) {
+        this.ai = ai;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
     public static JLabel getCountST() {
         return CountST;
     }
@@ -340,28 +273,28 @@ public class Interface extends javax.swing.JFrame {
         this.fondo = fondo;
     }
 
-    public JButton getjButton1() {
-        return jButton1;
-    }
-
-    public void setjButton1(JButton jButton1) {
-        this.jButton1 = jButton1;
-    }
-
-    public JLabel getjLabel1() {
+    public static JLabel getFotoPersonajeStartrek() {
         return fotoPersonajeStartrek;
     }
 
-    public void setjLabel1(JLabel jLabel1) {
-        this.fotoPersonajeStartrek = jLabel1;
+    public static void setFotoPersonajeStartrek(JLabel fotoPersonajeStartrek) {
+        Interface.fotoPersonajeStartrek = fotoPersonajeStartrek;
     }
 
-    public JLabel getjLabel2() {
+    public static JLabel getFotoPersonajeStarwars() {
         return fotoPersonajeStarwars;
     }
 
-    public void setjLabel2(JLabel jLabel2) {
-        this.fotoPersonajeStarwars = jLabel2;
+    public static void setFotoPersonajeStarwars(JLabel fotoPersonajeStarwars) {
+        Interface.fotoPersonajeStarwars = fotoPersonajeStarwars;
+    }
+
+    public static JButton getjButton1() {
+        return jButton1;
+    }
+
+    public static void setjButton1(JButton jButton1) {
+        Interface.jButton1 = jButton1;
     }
 
     public JPanel getjPanel1() {
@@ -475,6 +408,13 @@ public class Interface extends javax.swing.JFrame {
     public static void setStatsSW(JTextArea statsSW) {
         Interface.statsSW = statsSW;
     }
+
+    
+    
+        
+
+    
+
 
 
 
@@ -713,10 +653,10 @@ public class Interface extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 370, 160, 70));
 
-        fotoPersonajeStartrek.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/carta inicio st.png"))); // NOI18N
+        fotoPersonajeStartrek.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cartainiciost.png"))); // NOI18N
         jPanel1.add(fotoPersonajeStartrek, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 190, 240));
 
-        fotoPersonajeStarwars.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/carta inicio.png"))); // NOI18N
+        fotoPersonajeStarwars.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cartainicio.png"))); // NOI18N
         jPanel1.add(fotoPersonajeStarwars, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 180, 240));
 
         SPINNERTIEMPO.setToolTipText("10");
@@ -784,14 +724,17 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_formComponentAdded
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.iniciado=true;
+        
+        if (this.iniciado!=true){
         Global.st.listainicial();
         Global.sw.listainicial();
         this.ai = new AI();
         this.admin = new Admin(ai);
         this.ai.start();
         this.admin.start();    }//GEN-LAST:event_jButton1ActionPerformed
+        this.iniciado=true;
 
+        }
     private void IASTATUSPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_IASTATUSPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_IASTATUSPropertyChange
@@ -887,8 +830,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel Tiempo;
     private static javax.swing.JTextArea WINNERS;
     private javax.swing.JLabel fondo;
-    private javax.swing.JLabel fotoPersonajeStartrek;
-    private javax.swing.JLabel fotoPersonajeStarwars;
+    private static javax.swing.JLabel fotoPersonajeStartrek;
+    private static javax.swing.JLabel fotoPersonajeStarwars;
     private static javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
