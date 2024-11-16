@@ -10,9 +10,12 @@ import Classes.Global;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
+import javax.swing.JComponent;
+
 
 
 /**
@@ -28,8 +31,105 @@ public class Interface extends javax.swing.JFrame {
      * Creates new form Interface
      */
     public Interface() {
+        
         initComponents();
+        this.ai = new AI();
+         JComponent editor = SPINNERTIEMPO.getEditor();
+       
+    if (editor instanceof JSpinner.DefaultEditor) {
+    ((JSpinner.DefaultEditor) editor).getTextField().setEditable(false);}
+      
     }
+    
+    public void changeImageResult(){
+        
+            if (ai.getCharacterStarTrek().name== "Spock"){
+                  fotoPersonajeStartrek.setIcon(new ImageIcon("Images/1.jpg")); 
+            } else if (ai.getCharacterStarTrek().name== "Garak"){
+                 fotoPersonajeStartrek.setIcon(new ImageIcon("Images/2.jpg")); 
+            } else if (ai.getCharacterStarTrek().name== "Kai Winn"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/3.jpg")); 
+            } else if (ai.getCharacterStarTrek().name== "Data"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/4.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "EMH"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/5.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "James T. Kirk"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/6.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Jean-Luc Picard"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/7.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Phlox"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/8.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Benjamin Sisko"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/9.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Kira"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/10.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Kira"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/10.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "T'Pol"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/11.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Weyoun"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/12.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Tuvok"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/13.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Seven of Nine"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/15.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Geordi La Forge"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/16.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Q"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/17.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Kira Nery"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/18.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Leonard-Bones-McCoy"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/19.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Miles O'Brien"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/20.jpg"));
+            } else if (ai.getCharacterStarTrek().name== "Odo"){
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/21.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Emperador"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/22.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Mace Windu"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/23.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Grand Moff Tarkin"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/41.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Chewbacca"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/24.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Admiral Ackbar"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/25.jpg"));
+            } else if (ai.getCharacterStarWars().name== "K-2SO"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/26.jpg"));
+            } else if (ai.getCharacterStarWars().name== "C-3PO"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/27.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Darth Maul"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/28.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Obi-Wan Kenobi"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/29.jpg"));
+            } else if (ai.getCharacterStarWars().name== "R2-D2"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/30.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Luke Skywalker"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/31.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Princesa Leia"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/32.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Yoda"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/33.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Darth Vade"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/34.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Han Solo"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/35.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Ahsoka Tano"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/36.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Boba Fett"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/37.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Qui-Gon Jinn"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/38.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Anakin Skywalker"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/39.jpg"));
+            } else if (ai.getCharacterStarWars().name== "Conde Dook"){
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/40.jpg"));
+            } else {
+                fotoPersonajeStarwars.setIcon(new ImageIcon("Images/carta inicio.jpg"));
+                fotoPersonajeStartrek.setIcon(new ImageIcon("Images/carta inicio st.jpg"));
+            }
+         }          
 
     
     public static JLabel getCountST() {
@@ -249,19 +349,19 @@ public class Interface extends javax.swing.JFrame {
     }
 
     public JLabel getjLabel1() {
-        return jLabel1;
+        return fotoPersonajeStartrek;
     }
 
     public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
+        this.fotoPersonajeStartrek = jLabel1;
     }
 
     public JLabel getjLabel2() {
-        return jLabel2;
+        return fotoPersonajeStarwars;
     }
 
     public void setjLabel2(JLabel jLabel2) {
-        this.jLabel2 = jLabel2;
+        this.fotoPersonajeStarwars = jLabel2;
     }
 
     public JPanel getjPanel1() {
@@ -424,8 +524,8 @@ public class Interface extends javax.swing.JFrame {
         SWP3 = new javax.swing.JTextArea();
         jScrollPane10 = new javax.swing.JScrollPane();
         STP3 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        fotoPersonajeStartrek = new javax.swing.JLabel();
+        fotoPersonajeStarwars = new javax.swing.JLabel();
         SPINNERTIEMPO = new javax.swing.JSpinner();
         Tiempo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -550,65 +650,74 @@ public class Interface extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 510, 100, 50));
 
+        WINNERS.setEditable(false);
         WINNERS.setColumns(20);
         WINNERS.setRows(5);
         jScrollPane5.setViewportView(WINNERS);
 
         jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, 320, 90));
 
+        STR.setEditable(false);
         STR.setColumns(20);
         STR.setRows(5);
         jScrollPane3.setViewportView(STR);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 490, 160, 70));
 
+        STP1.setEditable(false);
         STP1.setColumns(20);
         STP1.setRows(5);
         jScrollPane2.setViewportView(STP1);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 150, 160, 70));
 
+        STP2.setEditable(false);
         STP2.setColumns(20);
         STP2.setRows(5);
         jScrollPane4.setViewportView(STP2);
 
         jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 260, 160, 70));
 
+        SWR.setEditable(false);
         SWR.setColumns(20);
         SWR.setRows(5);
         jScrollPane6.setViewportView(SWR);
 
         jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 160, 70));
 
+        SWP1.setEditable(false);
         SWP1.setColumns(20);
         SWP1.setRows(5);
         jScrollPane7.setViewportView(SWP1);
 
         jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 160, 70));
 
+        SWP2.setEditable(false);
         SWP2.setColumns(20);
         SWP2.setRows(5);
         jScrollPane8.setViewportView(SWP2);
 
         jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 160, 70));
 
+        SWP3.setEditable(false);
         SWP3.setColumns(20);
         SWP3.setRows(5);
         jScrollPane9.setViewportView(SWP3);
 
         jPanel1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 160, 70));
 
+        STP3.setEditable(false);
         STP3.setColumns(20);
         STP3.setRows(5);
         jScrollPane10.setViewportView(STP3);
 
         jPanel1.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 370, 160, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/carta inicio st.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 190, 240));
+        fotoPersonajeStartrek.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/carta inicio st.png"))); // NOI18N
+        jPanel1.add(fotoPersonajeStartrek, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 190, 240));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/carta inicio.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 180, 240));
+        fotoPersonajeStarwars.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/carta inicio.png"))); // NOI18N
+        jPanel1.add(fotoPersonajeStarwars, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 180, 240));
 
         SPINNERTIEMPO.setToolTipText("10");
         SPINNERTIEMPO.setValue(10);
@@ -625,10 +734,9 @@ public class Interface extends javax.swing.JFrame {
         Tiempo.setText("Tiempo AI (s)");
         jPanel1.add(Tiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 470, 80, 60));
 
-        statsSW.setBackground(new java.awt.Color(255, 255, 255));
+        statsSW.setEditable(false);
         statsSW.setColumns(20);
         statsSW.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        statsSW.setForeground(new java.awt.Color(0, 0, 0));
         statsSW.setRows(5);
         statsSW.setText("Star Wars Stats");
         statsSW.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -640,10 +748,9 @@ public class Interface extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 210, 120));
 
-        statsST.setBackground(new java.awt.Color(255, 255, 255));
+        statsST.setEditable(false);
         statsST.setColumns(20);
         statsST.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        statsST.setForeground(new java.awt.Color(0, 0, 0));
         statsST.setRows(5);
         statsST.setText("Star Trek Stats");
         statsST.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -780,9 +887,9 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel Tiempo;
     private static javax.swing.JTextArea WINNERS;
     private javax.swing.JLabel fondo;
+    private javax.swing.JLabel fotoPersonajeStartrek;
+    private javax.swing.JLabel fotoPersonajeStarwars;
     private static javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;

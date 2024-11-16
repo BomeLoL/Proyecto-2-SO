@@ -7,8 +7,9 @@ package Classes;
 import Classes.Global;
 import DataEstructure.List;
 import DataEstructure.Node;
-import Interfaces.Interface;
+import Interfaces.*;
 import java.util.Random;
+import javax.swing.JLabel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -47,6 +48,7 @@ public class Admin extends Thread{
                 }
                 seleccionadorDePersonajes();
                 changeStateTextStats();
+            
                 Global.SAI.release();
                 Global.SAdmin.acquire();
                 if (ai.getResult().equals("Tenemos un ganador")){
@@ -66,6 +68,8 @@ public class Admin extends Thread{
                     casoRefuerzo();
                 }
                 changeQueueText();
+                Interface inter = new Interface();
+                inter.changeImageResult();
                 changeStateTextResults();
                 sleep(2000);
                 contadorInanicion();
@@ -102,6 +106,8 @@ public class Admin extends Thread{
 
 
         }
+        
+        
         
       public void changeQueueText(){
             Interface.getSWP1().setText(Global.sw.firstPriority.print());
